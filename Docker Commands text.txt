@@ -1,0 +1,49 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\siddh\OneDrive\Documents\Projects\dockerApp> docker images
+REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
+PS C:\Users\siddh\OneDrive\Documents\Projects\dockerApp> docker build -t sbapp .
+[+] Building 26.6s (8/8) FINISHED                                                                        docker:default
+ => [internal] load .dockerignore                                                                                  0.1s
+ => => transferring context: 2B                                                                                    0.0s
+ => [internal] load build definition from Dockerfile                                                               0.1s
+ => => transferring dockerfile: 159B                                                                               0.0s
+ => [internal] load metadata for docker.io/library/openjdk:17                                                     11.4s
+ => [internal] load build context                                                                                  0.3s
+ => => transferring context: 19.02MB                                                                               0.2s
+ => [1/3] FROM docker.io/library/openjdk:17@sha256:528707081fdb9562eb819128a9f85ae7fe000e2fbaeaf9f87662e7b3f38cb  13.6s
+ => => resolve docker.io/library/openjdk:17@sha256:528707081fdb9562eb819128a9f85ae7fe000e2fbaeaf9f87662e7b3f38cb7  0.0s
+ => => sha256:528707081fdb9562eb819128a9f85ae7fe000e2fbaeaf9f87662e7b3f38cb7d8 1.04kB / 1.04kB                     0.0s
+ => => sha256:98f0304b3a3b7c12ce641177a99d1f3be56f532473a528fda38d53d519cafb13 954B / 954B                         0.0s
+ => => sha256:5e28ba2b4cdb3a7c3bd0ee2e635a5f6481682b77eabf8b51a17ea8bfe1c05697 4.45kB / 4.45kB                     0.0s
+ => => sha256:38a980f2cc8accf69c23deae6743d42a87eb34a54f02396f3fcfd7c2d06e2c5b 42.11MB / 42.11MB                   3.9s
+ => => sha256:de849f1cfbe60b1c06a1db83a3129ab0ea397c4852b98e3e4300b12ee57ba111 13.53MB / 13.53MB                   1.8s
+ => => sha256:a7203ca35e75e068651c9907d659adc721dba823441b78639fde66fc988f042f 187.53MB / 187.53MB                 9.7s
+ => => extracting sha256:38a980f2cc8accf69c23deae6743d42a87eb34a54f02396f3fcfd7c2d06e2c5b                          5.2s
+ => => extracting sha256:de849f1cfbe60b1c06a1db83a3129ab0ea397c4852b98e3e4300b12ee57ba111                          0.6s
+ => => extracting sha256:a7203ca35e75e068651c9907d659adc721dba823441b78639fde66fc988f042f                          3.1s
+ => [2/3] COPY target/docker_app.jar /usr/app/                                                                     1.1s
+ => [3/3] WORKDIR /usr/app                                                                                         0.0s
+ => exporting to image                                                                                             0.2s
+ => => exporting layers                                                                                            0.1s
+ => => writing image sha256:cf50836a731717f745f4ad3a8c8980bf693ba03e4971d50cdde527260ecccc2f                       0.0s
+ => => naming to docker.io/library/sbapp                                                                           0.0s
+
+What's Next?
+  1. Sign in to your Docker account → docker login
+  2. View a summary of image vulnerabilities and recommendations → docker scout quickview
+PS C:\Users\siddh\OneDrive\Documents\Projects\dockerApp> docker images
+REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
+sbapp        latest    cf50836a7317   8 seconds ago   490MB
+PS C:\Users\siddh\OneDrive\Documents\Projects\dockerApp> docker run -d -p 8080:8080 sbapp
+1f0fccc4f9fb0a349ba9839db83b0539859a6862b96578e3129380493593389e
+PS C:\Users\siddh\OneDrive\Documents\Projects\dockerApp> docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                    NAMES
+1f0fccc4f9fb   sbapp     "java -jar docker_ap…"   16 seconds ago   Up 14 seconds   0.0.0.0:8080->8080/tcp   optimistic_pasteur
+PS C:\Users\siddh\OneDrive\Documents\Projects\dockerApp> docker images
+REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
+sbapp        latest    cf50836a7317   4 minutes ago   490MB
+PS C:\Users\siddh\OneDrive\Documents\Projects\dockerApp>
